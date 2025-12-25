@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Tower Mumbai - NexBuild Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A0E27;
+            --accent: #FF6B35;
+            --secondary: #1E3A8A;
+            --light: #F8FAFC;
+            --white: #FFFFFF;
+            --gray: #64748B;
+            --dark-blue: #0F172A;
+            --success: #10B981;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header - Same as main site */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: -1px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .back-link {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Project Hero */
+        .project-hero {
+            margin-top: 90px;
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 14, 39, 0.95), transparent);
+            padding: 4rem 3rem;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-category {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--accent);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .project-location {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Quick Info Bar */
+        .quick-info {
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2rem 3rem;
+            margin: -3rem auto 0;
+            max-width: 1400px;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 1rem;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item:last-child {
+            border-right: none;
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0.3rem;
+        }
+
+        .info-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        .project-content {
+            max-width: 1400px;
+            margin: 5rem auto;
+            padding: 0 3rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        /* Overview Section */
+        .project-overview {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 15px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+        }
+
+        .feature-text p {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        /* Specifications Table */
+        .specifications {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .specs-table {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .specs-table tr {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .specs-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .specs-table td {
+            padding: 1.2rem 1rem;
+        }
+
+        .specs-table td:first-child {
+            font-weight: 600;
+            color: var(--primary);
+            width: 40%;
+        }
+
+        .specs-table td:last-child {
+            color: var(--gray);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:first-child {
+            grid-column: span 2;
+            height: 400px;
+        }
+
+        /* Amenities Section */
+        .amenities {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 10px;
+        }
+
+        .amenity-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .amenity-item span {
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .enquiry-form {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .enquiry-form h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .enquiry-form p {
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: 2px solid var(--accent);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #E55A2B;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            padding: 1.2rem;
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .action-btn:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Project Status Badge */
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--success);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .status-badge.ongoing {
+            background: #F59E0B;
+        }
+
+        /* Floor Plans Section */
+        .floor-plans {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .floor-plan-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .floor-plan-tab {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .floor-plan-tab.active {
+            color: var(--accent);
+        }
+
+        .floor-plan-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .floor-plan-content {
+            display: none;
+        }
+
+        .floor-plan-content.active {
+            display: block;
+        }
+
+        .floor-plan-image {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .floor-plan-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .plan-detail-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 10px;
+        }
+
+        .plan-detail-item .label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-detail-item .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Download Brochure */
+        .download-brochure {
+            background: linear-gradient(135deg, var(--accent), #E55A2B);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .download-brochure h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .download-btn {
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--accent);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .project-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .quick-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid,
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .quick-info {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+
+            .info-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .info-item:last-child {
+                border-bottom: none;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .project-content {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Nex<span>Build</span></a>
+            <a href="index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+        </nav>
+    </header>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80" alt="Tech Tower" class="project-hero-image">
+        <div class="project-hero-overlay">
+            <div class="hero-content">
+                <span class="project-category">Commercial</span>
+                <h1>Tech Tower Mumbai</h1>
+                <p class="project-location">
+                    <i class="fas fa-map-marker-alt"></i> Bandra Kurla Complex, Mumbai
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Bar -->
+    <div class="quick-info">
+        <div class="info-item">
+            <div class="info-icon"><i class="fas fa-building"></i></div>
+            <div class="info-label">Building Type</div>
+            <div class="info-value">Commercial</div>
+        </div>
+        <div class="info-item">
+            <div class="info-icon"><i class="fas fa-layer-group"></i></div>
+            <div class="info-label">Total Floors</div>
+            <div class="info-value">25</div>
+        </div>
+        <div class="info-item">
+            <div class="info-icon"><i class="fas fa-chart-area"></i></div>
+            <div class="info-label">Built-up Area</div>
+            <div class="info-value">3.5L sq.ft</div>
+        </div>
+        <div class="info-item">
+            <div class="info-icon"><i class="fas fa-check-circle"></i></div>
+            <div class="info-label">Status</div>
+            <div class="info-value" style="color: var(--success);">Completed</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="project-content">
+        <!-- Main Column -->
+        <div class="main-column">
+            <!-- Overview -->
+            <div class="project-overview">
+                <h2 class="section-title">Project Overview</h2>
+                <p class="project-description">
+                    Tech Tower is a landmark commercial development in the heart of Mumbai's prime business district. This 25-storey Grade A office building redefines modern workspace with cutting-edge infrastructure, sustainable design, and world-class amenities.
+                </p>
+                <p class="project-description">
+                    Strategically located in Bandra Kurla Complex with excellent connectivity to major business hubs, Tech Tower offers premium office spaces ranging from 5,000 to 50,000 sq.ft, designed to meet the needs of modern enterprises.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>LEED Gold Certified</h4>
+                            <p>Sustainable design with energy-efficient systems</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Smart Building</h4>
+                            <p>IoT-enabled infrastructure and automation</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>24/7 Security</h4>
+                            <p>Advanced security with CCTV and access control</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Ample Parking</h4>
+                            <p>Multi-level parking for 500+ vehicles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specifications -->
+            <div class="specifications">
+                <h2 class="section-title">Project Specifications</h2>
+                <table class="specs-table">
+                    <tr>
+                        <td>Project Name</td>
+                        <td>Tech Tower Mumbai</td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td>Bandra Kurla Complex, Mumbai - 400051</td>
+                    </tr>
+                    <tr>
+                        <td>Total Floors</td>
+                        <td>25 Floors + 3 Basement Levels</td>
+                    </tr>
+                    <tr>
+                        <td>Total Built-up Area</td>
+                        <td>3,50,000 sq.ft (32,516 sq.m)</td>
+                    </tr>
+                    <tr>
+                        <td>Floor Plate</td>
+                        <td>15,000 - 18,000 sq.ft per floor</td>
+                    </tr>
+                    <tr>
+                        <td>Ceiling Height</td>
+                        <td>3.6 meters (11.8 feet)</td>
+                    </tr>
+                    <tr>
+                        <td>Power Backup</td>
+                        <td>100% DG Backup</td>
+                    </tr>
+                    <tr>
+                        <td>Elevators</td>
+                        <td>6 High-Speed Elevators + 2 Service Lifts</td>
+                    </tr>
+                    <tr>
+                        <td>HVAC</td>
+                        <td>VRF Air Conditioning System</td>
+                    </tr>
+                    <tr>
+                        <td>Fire Safety</td>
+                        <td>Sprinkler System & Fire Detection</td>
+                    </tr>
+                    <tr>
+                        <td>Parking</td>
+                        <td>500+ Car Parking Spaces</td>
+                    </tr>
+                    <tr>
+                        <td>Completion Year</td>
+                        <td>2024</td>
+                    </tr>
+                    <tr>
+                        <td>RERA Number</td>
+                        <td>P52000012345</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Gallery -->
+            <div class="gallery">
+                <h2 class="section-title">Project Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Tower Exterior">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Office Space">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80" alt="Lobby">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80" alt="Conference Room">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" alt="Workspace">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Amenities -->
+            <div class="amenities">
+                <h2 class="section-title">World-Class Amenities</h2>
+                <div class="amenities-grid">
+                    <div class="amenity-item">
+                        <div class="amenity-icon"><i class="fas fa-dumbbell"></i></div>
+                        <span>Fitness Center</span>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon"><i class="fas fa-utensils"></i></div>
+                        <span>Food Court</span>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon"><i class="fas fa-coffee"></i></div>
+                        <span>Cafeteria</span>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon"><i class="fas fa-users"></i></div>
+                        <span>Conference Rooms</span>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon"><i class="fas fa-swimmer"></i></div>
+                        <span>Rooftop Lounge</span>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon"><i class="fas fa-tree"></i></div>
+                        <span>Landscaped Gardens</span>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon"><i class="fas fa-shield-alt"></i></div>
+                        <span>24/7 Security</span>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon"><i class="fas fa-charging-station"></i></div>
+                        <span>EV Charging</span>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon"><i class="fas fa-concierge-bell"></i></div>
+                        <span>Concierge Service</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floor Plans -->
+            <div class="floor-plans">
+                <h2 class="section-title">Floor Plans</h2>
+                <div class="floor-plan-tabs">
+                    <button class="floor-plan-tab active" onclick="showFloorPlan('typical')">Typical Floor</button>
+                    <button class="floor-plan-tab" onclick="showFloorPlan('ground')">Ground Floor</button>
+                    <button class="floor-plan-tab" onclick="showFloorPlan('basement')">Basement</button>
+                </div>
+                <div class="floor-plan-content active" id="typical">
+                    <img src="https://via.placeholder.com/800x600/0A0E27/FFFFFF?text=Typical+Floor+Plan" alt="Typical Floor Plan" class="floor-plan-image">
+                    <div class="floor-plan-details">
+                        <div class="plan-detail-item">
+                            <div class="label">Carpet Area</div>
+                            <div class="value">15,000 sq.ft</div>
+                        </div>
+                        <div class="plan-detail-item">
+                            <div class="label">Office Units</div>
+                            <div class="value">8-12</div>
+                        </div>
+                        <div class="plan-detail-item">
+                            <div class="label">Restrooms</div>
+                            <div class="value">4</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-plan-content" id="ground">
+                    <img src="https://via.placeholder.com/800x600/0A0E27/FFFFFF?text=Ground+Floor+Plan" alt="Ground Floor Plan" class="floor-plan-image">
+                    <div class="floor-plan-details">
+                        <div class="plan-detail-item">
+                            <div class="label">Lobby Area</div>
+                            <div class="value">5,000 sq.ft</div>
+                        </div>
+                        <div class="plan-detail-item">
+                            <div class="label">Retail Spaces</div>
+                            <div class="value">6</div>
+                        </div>
+                        <div class="plan-detail-item">
+                            <div class="label">Reception</div>
+                            <div class="value">Yes</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floor-plan-content" id="basement">
+                    <img src="https://via.placeholder.com/800x600/0A0E27/FFFFFF?text=Basement+Floor+Plan" alt="Basement Floor Plan" class="floor-plan-image">
+                    <div class="floor-plan-details">
+                        <div class="plan-detail-item">
+                            <div class="label">Parking Capacity</div>
+                            <div class="value">500+ Cars</div>
+                        </div>
+                        <div class="plan-detail-item">
+                            <div class="label">Basement Levels</div>
+                            <div class="value">3</div>
+                        </div>
+                        <div class="plan-detail-item">
+                            <div class="label">EV Charging</div>
+                            <div class="value">50 Points</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Enquiry Form -->
+            <div class="enquiry-form">
+                <h3>Interested?</h3>
+                <p>Fill out the form and we'll get back to you within 24 hours.</p>
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                    </div>
+                    <input type="hidden" name="project" value="Tech Tower Mumbai">
+                    <button type="submit" class="submit-btn">Send Enquiry</button>
+                </form>
+            </div>
+
+            <!-- Download Brochure -->
+            <div class="download-brochure">
+                <h4>Download Project Brochure</h4>
+                <a href="#" class="download-btn">
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <a href="tel:+919876543210" class="action-btn">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <a href="https://wa.me/919876543210?text=I'm interested in Tech Tower Mumbai" class="action-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="#" class="action-btn">
+                    <i class="fas fa-calendar"></i> Schedule Visit
+                </a>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // Floor Plan Tabs
+        function showFloorPlan(planId) {
+            // Hide all floor plans
+            document.querySelectorAll('.floor-plan-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            document.querySelectorAll('.floor-plan-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected floor plan
+            document.getElementById(planId).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Gallery Lightbox (optional - you can add lightbox library)
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Add lightbox functionality here
+                console.log('Gallery item clicked');
+            });
+        });
+    </script>
+</body>
+</html>
