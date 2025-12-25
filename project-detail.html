@@ -960,22 +960,38 @@
             <div class="enquiry-form">
                 <h3>Interested?</h3>
                 <p>Fill out the form and we'll get back to you within 24 hours.</p>
-                <form action="https://formspree.io/f/xykyggra" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Email Address" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" name="phone" placeholder="Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-                    </div>
-                    <input type="hidden" name="project" value="Tech Tower Mumbai">
-                    <button type="submit" class="submit-btn">Send Enquiry</button>
-                </form>
+               <form action="https://api.web3forms.com/submit" method="POST">
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="6da1684c-5de1-4d50-9c76-5023bd2ba9ca">
+    
+    <!-- Custom Email Subject -->
+    <input type="hidden" name="subject" value="Project Enquiry: Tech Tower Mumbai">
+    
+    <!-- From Name -->
+    <input type="hidden" name="from_name" value="NexBuild Project Enquiry">
+    
+    <!-- Project Name -->
+    <input type="hidden" name="project" value="Tech Tower Mumbai">
+    
+    <div class="form-group">
+        <input type="text" name="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+        <input type="email" name="email" placeholder="Email Address" required>
+    </div>
+    <div class="form-group">
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+    </div>
+    <div class="form-group">
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+    </div>
+    
+    <!-- Honeypot Spam Protection -->
+    <input type="checkbox" name="botcheck" style="display: none;">
+    
+    <button type="submit" class="submit-btn">Send Enquiry</button>
+</form>
+
             </div>
 
             <!-- Download Brochure -->
