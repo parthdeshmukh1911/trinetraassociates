@@ -1269,31 +1269,46 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" action="https://formspree.io/f/xykyggra" method="POST">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Required</label>
-                            <input type="text" id="service" name="service" placeholder="e.g., Residential, Commercial" required>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+                <!-- Web3Forms Integration -->
+<form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="6da1684c-5de1-4d50-9c76-5023bd2ba9ca">
+    
+    <!-- Optional: Custom subject line -->
+    <input type="hidden" name="subject" value="New Construction Enquiry from Website">
+    
+    <!-- Optional: From name -->
+    <input type="hidden" name="from_name" value="NexBuild Website">
+    
+    <div class="form-grid">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="service">Service Required</label>
+            <input type="text" id="service" name="service" placeholder="e.g., Residential, Commercial" required>
+        </div>
+        <div class="form-group full-width">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+    </div>
+    
+    <!-- Honeypot spam protection -->
+    <input type="checkbox" name="botcheck" style="display: none;">
+    
+    <button type="submit" class="submit-btn">Send Message</button>
+</form>
+
             </div>
         </div>
     </section>
